@@ -11,18 +11,18 @@ const MilestoneCard = ({ index, hoveredCard, setHoveredCard }) => {
 			scale: 1,
 			transition: {
 				type: 'tween',
-				duration: 0.2,
+				duration: 0.3,
 			},
 		},
 		activeCardHover: {
-			scale: 1.3,
+			scale: 1.45,
 			transition: {
 				type: 'tween',
 				duration: 0.2,
 			},
 		},
 		nonActiveCardHover: {
-			scale: 0.95,
+			scale: 0.85,
 			transition: {
 				type: 'tween',
 				duration: 0.2,

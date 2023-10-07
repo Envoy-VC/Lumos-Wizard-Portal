@@ -7,6 +7,7 @@ import './Milestones.css';
 
 const Milestones = () => {
 	const [hoveredCard, setHoveredCard] = React.useState(null);
+	const scrollRef = React.useRef(null);
 	const CardVariants = (index) => {
 		return {
 			hidden: {
@@ -16,11 +17,11 @@ const Milestones = () => {
 			},
 			visible: {
 				position: 'absolute',
-				left: `${index * 16}%`,
+				left: `${index === 0 ? 2 : index * 15.83 + 2}%`,
 				transition: {
 					type: 'tween',
 					delay: 0.3,
-					duration: 0.65,
+					duration: 0.45,
 				},
 
 				rotate: `0deg`,
@@ -30,7 +31,7 @@ const Milestones = () => {
 
 	return (
 		<div className='milestonesContainer'>
-			<div className='cardWrapper'>
+			<div className='cardWrapper' ref={scrollRef}>
 				{Array(6)
 					.fill(1)
 					.map((card, index) => (
@@ -41,6 +42,7 @@ const Milestones = () => {
 							whileInView='visible'
 							viewport={{
 								once: false,
+								margin: '-250px',
 							}}
 							key={index}
 							className='cardContainer'
